@@ -28,12 +28,7 @@ const timeInSeconds = (timeString) => {
   return seconds + minutes * 60;
 };
 
-const Player = ({
-  duration,
-  randomIdFromArtist,
-  randomId2FromArtist,
-  audio,
-}) => {
+const Player = ({ duration, prevId, nextId, audio }) => {
   // const audioPlayer...
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -72,7 +67,7 @@ const Player = ({
   return (
     <div className="player">
       <div className="player__controllers">
-        <Link to={`/song/${randomIdFromArtist}`}>
+        <Link to={`/song/${prevId}`}>
           <FontAwesomeIcon className="player__icon" icon={faBackwardStep} />
         </Link>
 
@@ -82,7 +77,7 @@ const Player = ({
           onClick={() => playPause()}
         />
 
-        <Link to={`/song/${randomId2FromArtist}`}>
+        <Link to={`/song/${nextId}`}>
           <FontAwesomeIcon className="player__icon" icon={faForwardStep} />
         </Link>
       </div>

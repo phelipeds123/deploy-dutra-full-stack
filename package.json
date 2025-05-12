@@ -17,5 +17,9 @@
     "url": "https://github.com/phelipeds123/deploy-dutra-full-stack/issues"
   },
   "homepage": "https://github.com/phelipeds123/deploy-dutra-full-stack#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
 }

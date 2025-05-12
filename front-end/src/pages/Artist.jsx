@@ -18,7 +18,7 @@ const Artist = () => {
   const randomIndex = Math.floor(
     Math.random() * (songsArrayFromArtist.length - 1)
   );
-  const randomIdFromArtist = songsArrayFromArtist[randomIndex]._id;
+  const prevId = songsArrayFromArtist[randomIndex]._id;
 
   return (
     <div className="artist">
@@ -36,7 +36,7 @@ const Artist = () => {
 
         <SongList songsArray={songsArrayFromArtist} />
       </div>
-      <Link to={`/song/${randomIdFromArtist}`}>
+      <Link to={`/song/${prevId}`}>
         <FontAwesomeIcon
           className="single-item__icon single-item__icon--artist"
           icon={faCirclePlay}

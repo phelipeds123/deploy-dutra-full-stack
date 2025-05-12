@@ -18,15 +18,17 @@ const Song = () => {
   );
   // console.log(songsArrayFromArtist)
 
-  const randomIndex = Math.floor(
-    Math.random() * (songsArrayFromArtist.length - 1)
-  );
-  const randomIndex2 = Math.floor(
-    Math.random() * (songsArrayFromArtist.length - 1)
+  const currentIndex = songsArrayFromArtist.findIndex(
+    (song) => song._id === id
   );
 
-  const randomIdFromArtist = songsArrayFromArtist[randomIndex]._id;
-  const randomId2FromArtist = songsArrayFromArtist[randomIndex2]._id;
+  const nextIndex = (currentIndex + 1) % songsArrayFromArtist.length;
+  const nextId = songsArrayFromArtist[nextIndex]._id;
+
+  const prevIndex =
+    (currentIndex - 1 + songsArrayFromArtist.length) %
+    songsArrayFromArtist.length;
+  const prevId = songsArrayFromArtist[prevIndex]._id;
 
   return (
     <div className="song">
@@ -47,8 +49,8 @@ const Song = () => {
 
         <Player
           duration={duration}
-          randomIdFromArtist={randomIdFromArtist}
-          randomId2FromArtist={randomId2FromArtist}
+          prevId={prevId}
+          nextId={nextId}
           audio={audio}
         />
 
